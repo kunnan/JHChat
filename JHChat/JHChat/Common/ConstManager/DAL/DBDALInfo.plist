@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>im_msg_app</key>
+	<dict>
+		<key>appid</key>
+		<string>version:93 author:gjh time:2018-10-08 添加字段</string>
+		<key>logo</key>
+		<string>version:93 author:gjh time:2018-10-08 添加字段</string>
+		<key>appcode</key>
+		<string>version:93 author:gjh time:2018-10-08 添加字段</string>
+		<key>state</key>
+		<string>version:93 author:gjh time:2018-10-08 添加字段</string>
+		<key>msgiosconfig</key>
+		<string>version:93 author:gjh time:2018-10-08 添加字段</string>
+		<key>msgandroidconfig</key>
+		<string>version:93 author:gjh time:2018-10-08 添加字段</string>
+		<key>valid</key>
+		<string>version:93 author:gjh time:2018-10-08 添加字段</string>
+		<key>appcolour</key>
+		<string>version:93 author:gjh time:2018-10-08 添加字段</string>
+		<key>synthetiselogo</key>
+		<string>version:93 author:gjh time:2018-10-08 添加字段</string>
+		<key>msgwebconfig</key>
+		<string>version:93 author:gjh time:2018-10-08 添加字段</string>
+		<key>name</key>
+		<string>version:93 author:gjh time:2018-10-08 添加字段</string>
+	</dict>
+	<key>app</key>
+	<dict>
+		<key>alias</key>
+		<string>version:92 author:dfl time:2018-09-19 添加字段</string>
+	</dict>
+	<key>im_group_robot_weather</key>
+	<dict>
+		<key>rwid</key>
+		<string>version:91 author:gjh time:2018-09-03 添加字段</string>
+		<key>name</key>
+		<string>version:91 author:gjh time:2018-09-03 添加字段</string>
+		<key>icon</key>
+		<string>version:91 author:gjh time:2018-09-03 添加字段</string>
+		<key>isopentime</key>
+		<string>version:91 author:gjh time:2018-09-03 添加字段</string>
+		<key>pushtime</key>
+		<string>version:91 author:gjh time:2018-09-03 添加字段</string>
+		<key>province</key>
+		<string>version:91 author:gjh time:2018-09-03 添加字段</string>
+		<key>city</key>
+		<string>version:91 author:gjh time:2018-09-03 添加字段</string>
+		<key>ispushmessage</key>
+		<string>version:91 author:gjh time:2018-09-03 添加字段</string>
+		<key>addtime</key>
+		<string>version:91 author:gjh time:2018-09-03 添加字段</string>
+		<key>igid</key>
+		<string>version:91 author:gjh time:2018-09-03 添加字段</string>
+		<key>igrid</key>
+		<string>version:91 author:gjh time:2018-09-03 添加字段</string>
+		<key>riid</key>
+		<string>version:91 author:gjh time:2018-09-03 添加字段</string>
+	</dict>
+	<key>im_group_robot_info</key>
+	<dict>
+		<key>riid</key>
+		<string>version:91 author:gjh time:2018-09-03 添加字段</string>
+		<key>appid</key>
+		<string>version:91 author:gjh time:2018-09-03 添加字段</string>
+		<key>appcode</key>
+		<string>version:91 author:gjh time:2018-09-03 添加字段</string>
+		<key>name</key>
+		<string>version:91 author:gjh time:2018-09-03 添加字段</string>
+		<key>icon</key>
+		<string>version:91 author:gjh time:2018-09-03 添加字段</string>
+		<key>intro</key>
+		<string>version:91 author:gjh time:2018-09-03 添加字段</string>
+		<key>preview</key>
+		<string>version:91 author:gjh time:2018-09-03 添加字段</string>
+		<key>iscustomsettint</key>
+		<string>version:91 author:gjh time:2018-09-03 添加字段</string>
+		<key>templatecode</key>
+		<string>version:91 author:gjh time:2018-09-03 添加字段</string>
+		<key>messageapi</key>
+		<string>version:91 author:gjh time:2018-09-03 添加字段</string>
+	</dict>
+	<key>im_group</key>
+	<dict>
+		<key>groupresource</key>
+		<string>version:89 author:gjh time:2018-07-25 添加字段</string>
+		<key>imgrouprobots</key>
+		<string>version:91 author:gjh time:2018-09-03 添加字段</string>
+	</dict>
+	<key>aliyun_server</key>
+	<dict>
+		<key>cnamereadrfsurl</key>
+		<string>version:87 author:sy time:2018-05-30 添加字段 </string>
+		<key>readbucket</key>
+		<string>version:87 author:sy time:2018-05-30 添加字段 </string>
+		<key>synchronizetype</key>
+		<string>version:87 author:sy time:2018-05-30 添加字段 </string>
+	</dict>
+	<key>im_group_call</key>
+	<dict>
+		<key>iscallother</key>
+		<string>version:88  author:gjh time:2018-06-06添加字段 </string>
+		<key>initiateuid</key>
+		<string>version:89  author:gjh time:2018-07-25添加字段 </string>
+	</dict>
+</dict>
+</plist>

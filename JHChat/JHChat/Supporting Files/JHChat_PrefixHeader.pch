@@ -1,0 +1,62 @@
+//
+//  JHChat_PrefixHeader.pch
+//  JHChat
+//
+//  Created by gjh on 2018/11/5.
+//  Copyright © 2018 gjh. All rights reserved.
+//
+
+#ifndef JHChat_PrefixHeader_pch
+#define JHChat_PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* JHChat_PrefixHeader_pch */
+
+/*下面引用的文件确保只被使用Objective-C语言的文件所引用*/
+#ifdef __OBJC__
+
+#import "BaseConst.h"
+#import "BaseWebApi.h"
+#import "OrganizationWebApi.h"
+#import "CooperationWebApi.h"
+#import "UserWebApi.h"
+#import "MessageWebApi.h"
+#import "CloudDiskWebApi.h"
+#import "FavoritesWebApi.h"
+#import "FileCommonWebApi.h"
+#import "CooperationBaseFileWebApi.h"
+#import "EventBusConst.h"
+#import "ChatConst.h"
+#import "ContactConst.h"
+#import "AppConst.h"
+#import "CooperationHT.h"
+#import "OrganizationHT.h"
+#import "UserHT.h"
+#import "MessageHT.h"
+#import "CloudDiskAppHT.h"
+#import "FavoritesHT.h"
+#import "MyTransactionHT.h"
+#import "AppHT.h"
+#import "Log.h"
+#import "LZUserDataManager.h"
+#import "DimenMagnager.h"
+#import "GDLocalizableManager.h"
+#import "LZFormat.h"
+#import "LZCheck.h"
+#import "LZUtils.h"
+#import "ImageManager.h"
+#import "Masonry.h"
+#import "NSDictionary+DicObjectForKey.h"
+#import "NSMutableDictionary+DicObjectForKey.h"
+#import "RemotelyServerWebApi.h"
+#import "UMMobClick/MobClick.h"
+#import "HJCornerRadius.h"
+#import "UIView+CircularBead.h"
+#import "UMengUtil.h"
+#import "CommonFontModel.h"
+#import "NSString+IsNullOrEmpty.h"
+#import "NSString+CGSize.h"
+
+#endif
