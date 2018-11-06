@@ -7,6 +7,8 @@
 //
 
 #import "JHBaseNavigationController.h"
+#import "ChatViewController.h"
+#import "UIViewController+BackButtonHandler.h"
 
 @interface JHBaseNavigationController ()<UINavigationControllerDelegate, UIGestureRecognizerDelegate>
 @property(nonatomic, weak) UIViewController *currentShowVC;

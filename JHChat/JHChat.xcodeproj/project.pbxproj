@@ -130,6 +130,7 @@
 		3B7B21332191327700E19303 /* MessageRootViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B7B21322191327700E19303 /* MessageRootViewModel.m */; };
 		3B7B21382191328300E19303 /* PersonRemindViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B7B21352191328100E19303 /* PersonRemindViewModel.m */; };
 		3B7B21392191328300E19303 /* ChatViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B7B21372191328300E19303 /* ChatViewModel.m */; };
+		3B7B213C2191348700E19303 /* UIViewController+BackButtonHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B7B213B2191348700E19303 /* UIViewController+BackButtonHandler.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -428,6 +429,8 @@
 		3B7B21352191328100E19303 /* PersonRemindViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonRemindViewModel.m; sourceTree = "<group>"; };
 		3B7B21362191328200E19303 /* PersonRemindViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonRemindViewModel.h; sourceTree = "<group>"; };
 		3B7B21372191328300E19303 /* ChatViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewModel.m; sourceTree = "<group>"; };
+		3B7B213A2191348700E19303 /* UIViewController+BackButtonHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+BackButtonHandler.h"; sourceTree = "<group>"; };
+		3B7B213B2191348700E19303 /* UIViewController+BackButtonHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+BackButtonHandler.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -992,6 +995,8 @@
 		3B7B209721912CCE00E19303 /* BaseNavigationController */ = {
 			isa = PBXGroup;
 			children = (
+				3B7B213A2191348700E19303 /* UIViewController+BackButtonHandler.h */,
+				3B7B213B2191348700E19303 /* UIViewController+BackButtonHandler.m */,
 				3B7B209821912D4400E19303 /* JHBaseNavigationController.h */,
 				3B7B209921912D4400E19303 /* JHBaseNavigationController.m */,
 			);
@@ -1427,6 +1432,7 @@
 				3B45805D21904427007C4EE0 /* UIView+XHRemoteImage.m in Sources */,
 				3B45806B21904427007C4EE0 /* UIImage+RoundedCorner.m in Sources */,
 				3B4580952190449B007C4EE0 /* NSString+Replace.m in Sources */,
+				3B7B213C2191348700E19303 /* UIViewController+BackButtonHandler.m in Sources */,
 				3B7B21252191318F00E19303 /* ChatLogCombineViewController.m in Sources */,
 				3B7B21032191300100E19303 /* FMDatabaseQueue.m in Sources */,
 				3B7B21012191300100E19303 /* JSNCPlugin.m in Sources */,
@@ -1737,7 +1743,8 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S3VK26R296;
 				GCC_PREFIX_HEADER = "JHChat/Supporting Files/JHChat_PrefixHeader.pch";
-				INFOPLIST_FILE = JHChat/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/JHChat/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1759,7 +1766,8 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S3VK26R296;
 				GCC_PREFIX_HEADER = "JHChat/Supporting Files/JHChat_PrefixHeader.pch";
-				INFOPLIST_FILE = JHChat/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/JHChat/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
