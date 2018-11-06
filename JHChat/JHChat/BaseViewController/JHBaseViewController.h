@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 /* 界面可见时，是否需要刷新数据 */
 @property (nonatomic, assign) BOOL isNeedRefreshLZTableViewWhenViewAppear;
 
+@property (strong, nonatomic) NSString *currentUid;
+
 @end
 
 NS_ASSUME_NONNULL_END

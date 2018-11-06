@@ -8,6 +8,7 @@
 
 #import "JHBaseViewController.h"
 #import "YYFPSLabel.h"
+#import "XHBaseNavigationController.h"
 
 @interface JHBaseViewController ()<MBProgressHUDDelegate>{
     /* 测试FPS */
@@ -30,7 +31,7 @@
         self.view.backgroundColor = [UIColor whiteColor];
         UIViewController *controller = [self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count-2];
         if([NSString isNullOrEmpty:controller.title]){
-            [self addCustomDefaultBackButton:LZGDCommonLocailzableString(@"common_back")];
+            [self addCustomDefaultBackButton:@"返回"];
         } else {
             [self addCustomDefaultBackButton:controller.title];
         }
@@ -38,8 +39,6 @@
     
     _currentUid = [[LZUserDataManager readCurrentUserInfo] objectForKey:@"uid"];
     self.view.backgroundColor = BACKGROUND_COLOR;
-    
-    
     
     EVENT_SUBSCRIBE(self, EventBus_User_Account_ChangeFace);
 }
@@ -73,6 +72,292 @@
     EVENT_UNSUBSCRIBE(self, EventBus_WebApi_SendFail);
 }
 
+
+- (void)dealloc {
+//    _viewModel2 = nil;
+//    _pageViewMode = nil;
+    EVENT_UNSUBSCRIBE(self, EventBus_User_Account_ChangeFace);
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+}
+#pragma mark - FPS
+
+- (void)testFPSLabel {
+    
+#ifdef DEBUG
+    fpsLabel = [YYFPSLabel new];
+    fpsLabel.frame = CGRectMake(LZ_SCREEN_WIDTH-100, 80+LZ_TOOLBAR_HEIGHT, 50, 30);
+    [fpsLabel sizeToFit];
+    [self.view addSubview:fpsLabel];
+#else
+#endif
+}
+
+#pragma mark - Public Method
+
+/**
+ *  push新的控制器到导航控制器
+ */
+- (void)pushNewViewController:(UIViewController *)newViewController {
+    [self.navigationController pushViewController:newViewController animated:YES];
+}
+
+/**
+ *  当前控制器出栈移除
+ */
+-(void)popViewControllerAnimated:(Boolean)aimated{
+    [self.navigationController popViewControllerAnimated:aimated];
+}
+
+/**
+ *  模态显示控制器
+ */
+-(void)modalShowController:(UIViewController *)targetController{
+    JHBaseNavigationController *navController=[[JHBaseNavigationController alloc]initWithRootViewController:targetController];
+    [self presentViewController:navController animated:YES completion:nil];
+}
+
+#pragma mark - Loading
+
+/**
+ *  点击HUD，隐藏之后调用
+ */
+-(void)hudClickTabClose{
+    DDLogVerbose(@"点击隐藏HUD");
+}
+
+/**
+ *  显示加载的loading，没有文字的
+ */
+- (LCProgressHUD *)showLoading{
+    LCProgressHUD *hud = [self showLoadingWithText:nil];
+    hud.delegate = self;
+    return hud;
+}
+/**
+ *  显示加载的loading，有文字(正在加载...)
+ */
+-(LCProgressHUD *)showLoadingInfo {
+    LCProgressHUD *hud = [LCProgressHUD showLoading:LCProgreaaHUD_Show_Loading];
+    hud.delegate = self;
+    return hud;
+}
+/**
+ *  显示等待提示
+ *  @param text 提示内容
+ */
+- (LCProgressHUD *)showLoadingWithText:(NSString *)text {
+    LCProgressHUD *hud = [LCProgressHUD showLoading:text];
+    hud.delegate = self;
+    return hud;
+}
+- (LCProgressHUD *)showLoadingWithText:(NSString *)text isDetailsLabelText:(BOOL) isDetailsLabelText{
+    LCProgressHUD *hud = [LCProgressHUD showLoading:text isDetailsLabelText:isDetailsLabelText];
+    hud.delegate = self;
+    return hud;
+}
+
+/**
+ *  显示警告信息
+ *  @param text 信息内容
+ */
+-(void)showMessageInfoWithText:(NSString*)text {
+    [LCProgressHUD showInfoMsg:text];
+}
+-(void)showMessageInfoWithText:(NSString*)text isDetailsLabelText:(BOOL) isDetailsLabelText{
+    [LCProgressHUD showInfoMsg:text isDetailsLabelText:isDetailsLabelText];
+}
+
+/**
+ *  显示成功的HUD
+ */
+- (void)showSuccess{
+    [self showSuccessWithText:nil];
+}
+/**
+ *  显示成功提示
+ *  @param text 提示内容
+ */
+-(void)showSuccessWithText:(NSString *)text{
+    [LCProgressHUD showSuccess:text];
+}
+-(void)showSuccessWithText:(NSString*)text isDetailsLabelText:(BOOL) isDetailsLabelText{
+    [LCProgressHUD showSuccess:text isDetailsLabelText:isDetailsLabelText];
+}
+
+/**
+ *  显示成功的HUD(带文字)
+ */
+-(void)showSuccessHaveText {
+    [LCProgressHUD showSuccess:LCProgressHUD_Show_Success];
+}
+/**
+ *  显示错误的HUD
+ */
+- (void)showError{
+    [self showErrorWithText:nil];
+}
+/**
+ *  显示错误提示
+ *  @param text 提示内容
+ */
+-(void)showErrorWithText:(NSString *)text{
+    [LCProgressHUD showFailure:text];
+}
+-(void)showErrorWithText:(NSString *)text isDetailsLabelText:(BOOL) isDetailsLabelText{
+    [LCProgressHUD showFailure:text isDetailsLabelText:isDetailsLabelText];
+}
+/**
+ *  显示不可手动点击隐藏的HUD
+ *  @param text 提示内容
+ */
+-(void)showshowLoadingForNotClickHideText:(NSString *)text{
+    [LCProgressHUD showLoadingForNotClickHide:text];
+}
+/**
+ *  隐藏在该View上的所有HUD，不管有哪些，都会全部被隐藏
+ */
+- (void)hideLoading{
+    [LCProgressHUD hide];
+}
+
+/**
+ 判断是否连接网络(直接带网络加载标识)
+ 
+ @return yes or no
+ */
+-(BOOL)isConnectNet{
+    if ([LZUserDataManager readIsConnectNetWork]) {
+        [self showLoadingInfo];
+        return YES;
+    }
+    else {
+        [self showNetWorkConnectFail];
+        return NO;
+    }
+}
+
+-(BOOL)isConnectNetWithLoadInfo:(NSString*)loadInfo{
+    if ([LZUserDataManager readIsConnectNetWork]) {
+        if (![NSString isNullOrEmpty:loadInfo]) {
+            [self showLoadingWithText:loadInfo];
+        }
+        return YES;
+    }
+    else {
+        [self showNetWorkConnectFail];
+        return NO;
+    }
+}
+-(BOOL)isConnectNetNotInfo{
+    if ([LZUserDataManager readIsConnectNetWork]) {
+        return YES;
+    }
+    else {
+        [self showNetWorkConnectFail];
+        return NO;
+    }
+}
+/**
+ *  显示webapi请求返回的错误信息
+ */
+-(void)showErrorWithErrorCode:(NSDictionary *)data{
+    NSDictionary *errorCode = nil;
+    if([[data allKeys] containsObject:WebApi_ErrorCode]){
+        errorCode = [data objectForKey:WebApi_ErrorCode];
+    }
+    else if( [[data allKeys] containsObject:@"Message"] && [[data allKeys] containsObject:@"Code"] ){
+        errorCode = data;
+    }
+    
+    /* 弹出提示信息 */
+    if(errorCode==nil){
+        [self showError];
+    }
+    else {
+        //        [LCProgressHUD showFailure:[errorCode objectForKey:@"Message"]];
+        NSString *message = [[ErrorCodeUtil shareInstance] getMessageFromErrorCode:errorCode];
+        if(![message isEqualToString:@"-"]){
+            //            [LCProgressHUD showFailure:message];
+            [LCProgressHUD showFailure:message isDetailsLabelText:YES];
+        }
+    }
+}
+/**
+ *  显示网络连接失败，无参数型
+ */
+-(void)showNetWorkConnectFail{
+    
+    [LCProgressHUD showFailure:LCProgressHUD_Show_NetWorkConnectFail];
+}
+
+#pragma mark - ChatViewController
+
+/**
+ *  获取供有Delegate
+ */
+- (AppDelegate *)appDelegate
+{
+    //    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    //    return appDelegate;
+    return [LZBaseAppDelegate shareInstance].appDelegate;
+}
+
+//创建聊天界面，并push出
+-(void)createPushChatViewControllerContactType:(NSInteger)contactType DialogID:(NSString *)dialogID
+{
+    ChatViewController *chatViewController = [self createChatViewControllerContactType:contactType DialogID:dialogID];
+    [self.appDelegate.lzGlobalVariable.messageRootVC pushChatViewControllerContactType:chatViewController controller:self];
+    //    [self pushNewViewController:chatViewController];
+}
+
+//创建聊天框界面
+-(ChatViewController *)createChatViewControllerContactType:(NSInteger)contactType DialogID:(NSString *)dialogID
+{
+    ChatViewController *chatViewController = nil;
+    if ([self.appDelegate.lzSingleInstance.chatDialogDictionary objectForKey:dialogID] == nil)
+    {
+        chatViewController = [[ChatViewController alloc] init];
+        chatViewController.contactType = contactType;
+        chatViewController.dialogid = dialogID;
+        [self.appDelegate.lzSingleInstance.chatDialogDictionary setObject:chatViewController forKey:dialogID];
+    }
+    else
+    {
+        chatViewController =[self.appDelegate.lzSingleInstance.chatDialogDictionary objectForKey:dialogID];
+        [chatViewController loadInitChatLog:NO newBottomMsgs:nil];
+    }
+    
+    /* 参数重置 */
+    chatViewController.popToViewController = nil;
+    chatViewController.chatViewDidAppearBlock = nil;
+    chatViewController.sendToType = 0;
+    chatViewController.appCode = nil;
+    chatViewController.isShowSetting = nil;
+    chatViewController.isNotShowOpenWorkGroupBtn = NO;
+    
+    return chatViewController;
+}
+
+/**
+ 创建个人提醒界面
+ */
+- (PersonRemindViewController *)createPersonRemindViewControllerContactType:(NSInteger)contactType DialogID:(NSString *)dialogID
+{
+    PersonRemindViewController *personRemindViewController = nil;
+    if ([self.appDelegate.lzSingleInstance.chatDialogDictionary objectForKey:dialogID] == nil) {
+        personRemindViewController = [[PersonRemindViewController alloc] init];
+        personRemindViewController.contactType = contactType;
+        personRemindViewController.dialogid = dialogID;
+        [self.appDelegate.lzSingleInstance.chatDialogDictionary setObject:personRemindViewController forKey:dialogID];
+    } else {
+        personRemindViewController = [self.appDelegate.lzSingleInstance.chatDialogDictionary objectForKey:dialogID];
+        [personRemindViewController loadInitChatLog:NO newBottomMsgs:nil];
+    }
+    return personRemindViewController;
+}
 #pragma mark - NavigationController
 
 //添加返回按钮

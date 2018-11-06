@@ -1,0 +1,18 @@
+/* 
+  LoginLocailzable.strings
+  LeadingCloud
+
+  Created by wchMac on 15/11/18.
+  Copyright © 2015年 LeadingSoft. All rights reserved.
+*/
+
+/* LoginViewController 登录界面 */
+"login_name" = "账号";
+"login_name_ph" = "用户名/邮箱/手机号";
+"login_password" = "密码";
+"login_wassword_ph" = "请输入密码";
+"login_btn_loginIn" = "登  录";
+"login_btn_register" = "新用户注册";
+"login_btn_findpwd" = "找回密码";
+"login_accountremark" = "使用合作账户登录";
+
