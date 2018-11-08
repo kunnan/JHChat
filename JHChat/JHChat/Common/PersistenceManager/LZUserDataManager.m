@@ -404,10 +404,10 @@ static NSString * const NS_IsPhoneValid = @"com.leading.leadingcloud.ns.isphonev
  *
  *  @param isServer 公有还是私有
  */
-+(void)saveIsServerModel:(NSString *)data
++(void)saveIsServerModel:(NSString *)isServer
 {
     NSMutableDictionary *dictionary = [LZUserDataManager commonReadKeyChain];
-    [dictionary setValue:data forKey:KEYCHAIN_ServerModel];
+    [dictionary setValue:isServer forKey:KEYCHAIN_ServerModel];
     [LZKeyChain save:KEYCHAIN_FILENAME data:dictionary];
     
 }
@@ -674,7 +674,7 @@ static NSString * const NS_IsPhoneValid = @"com.leading.leadingcloud.ns.isphonev
 /**
  保存这个版本是否显示引导页
 
- @param isShow
+ @param isShow s
  */
 + (void)saveisShowGuideVersion:(BOOL)isShow {
     [LZUserDataManager commonSaveBoolTypeWithKey:BOOT_PAGE_IS_SHOW value:isShow];
@@ -1107,7 +1107,7 @@ static NSString * const NS_IsPhoneValid = @"com.leading.leadingcloud.ns.isphonev
 /**
  *  记录是否为第一次登陆APP
  *
- *  @param isFirstLaunch 是否第一次登陆
+ *  @param data 是否第一次登陆
  */
 +(void)saveIsFirstLaunch:(NSMutableDictionary *)data
 {
@@ -1336,7 +1336,7 @@ static NSString * const NS_IsPhoneValid = @"com.leading.leadingcloud.ns.isphonev
 /**
  *  消息推送通知关闭的天数
  *
- *  @param date 消息推送通知关闭的当前时间
+ *  @param day 消息推送通知关闭的当前时间
  */
 +(void)saveCloseMessagePushDay:(NSInteger)day{
     [LZUserDataManager commonSaveIntegerTypeWithKey:NS_CLOSEMESSAGEPUSHDAY value:day];

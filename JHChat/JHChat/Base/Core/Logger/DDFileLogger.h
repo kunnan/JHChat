@@ -371,12 +371,14 @@ extern unsigned long long const kDDDefaultLogFilesDiskQuota;
  * custom formatters. Default value is YES.
  **/
 @property (nonatomic, readwrite, assign) BOOL automaticallyAppendNewlineForCustomFormatters;
-
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wstrict-prototypes"
 /**
  *  You can optionally force the current log file to be rolled with this method.
  *  CompletionBlock will be called on main queue.
  */
 - (void)rollLogFileWithCompletionBlock:(void (^)())completionBlock;
+#pragma clang diagnostic pop
 
 /**
  *  Method is deprecated.

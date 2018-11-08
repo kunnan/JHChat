@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BaseDimen</key>
+	<dict/>
+	<key>CommonDimen</key>
+	<dict/>
+	<key>LoginDimen</key>
+	<array>
+		<string>LoginViewController</string>
+	</array>
+	<key>MainDimen</key>
+	<dict/>
+	<key>MessageDimen</key>
+	<dict/>
+	<key>ContactDimen</key>
+	<dict/>
+	<key>CooperationDimen</key>
+	<dict/>
+	<key>AppDimen</key>
+	<dict/>
+	<key>MoreDimen</key>
+	<dict/>
+</dict>
+</plist>

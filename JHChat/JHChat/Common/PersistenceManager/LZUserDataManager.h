@@ -196,9 +196,9 @@
 +(BOOL)readIsLoginBefore;
 
 /**
- 保存这个版本是否显示引导页
+ * 保存这个版本是否显示引导页
  
- @param isShow
+ * @param isShow ss
  */
 + (void)saveisShowGuideVersion:(BOOL)isShow;
 + (BOOL)readIsShowGuideVersion;
@@ -478,7 +478,7 @@
 /**
  *  消息推送通知关闭的天数
  *
- *  @param date 消息推送通知关闭的当前时间
+ *  day 消息推送通知关闭的当前时间
  */
 +(void)saveCloseMessagePushDay:(NSInteger)day;
 +(NSInteger)readCloseMessagePushDay;

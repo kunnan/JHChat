@@ -29,7 +29,7 @@
 /**
  将项目中某些图片的名称可以转成其他的名称
  
- @param imageName 他们的图片名称
+ @param showName 他们的图片名称
  
  @return 项目中的名称
  */
