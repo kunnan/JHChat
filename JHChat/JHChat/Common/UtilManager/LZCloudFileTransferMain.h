@@ -47,7 +47,6 @@
 /**
  *  文件替换，使用block进行回调
  *
- *  @param IsTemp 是否上传到临时区
  *  @param lzFileProgressUpload   上传进度block
  *  @param lzFileDidSuccessUpload 上传成功block
  *  @param lzFileDidErrorUpload   上传失败block
@@ -90,7 +89,6 @@
 /**
  *  文件下载(Url方式)，使用block进行回调
  *
- *  @param IsTemp 是否上传到临时区
  *  @param lzFileProgressDownload   下载进度block
  *  @param lzFileDidSuccessDownload 下载成功block
  *  @param lzFileDidErrorDownload   下载失败block

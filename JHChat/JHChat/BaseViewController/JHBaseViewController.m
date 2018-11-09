@@ -8,7 +8,9 @@
 
 #import "JHBaseViewController.h"
 #import "YYFPSLabel.h"
-#import "XHBaseNavigationController.h"
+#import "JHBaseNavigationController.h"
+#import "ErrorCodeUtil.h"
+#import "AppDelegate.h"
 
 @interface JHBaseViewController ()<MBProgressHUDDelegate>{
     /* 测试FPS */
@@ -298,66 +300,66 @@
 /**
  *  获取供有Delegate
  */
-- (AppDelegate *)appDelegate
-{
-    //    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    //    return appDelegate;
-    return [LZBaseAppDelegate shareInstance].appDelegate;
-}
+//- (AppDelegate *)appDelegate
+//{
+//    //    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+//    //    return appDelegate;
+//    return [LZBaseAppDelegate shareInstance].appDelegate;
+//}
 
 //创建聊天界面，并push出
--(void)createPushChatViewControllerContactType:(NSInteger)contactType DialogID:(NSString *)dialogID
-{
-    ChatViewController *chatViewController = [self createChatViewControllerContactType:contactType DialogID:dialogID];
-    [self.appDelegate.lzGlobalVariable.messageRootVC pushChatViewControllerContactType:chatViewController controller:self];
-    //    [self pushNewViewController:chatViewController];
-}
+//-(void)createPushChatViewControllerContactType:(NSInteger)contactType DialogID:(NSString *)dialogID
+//{
+//    ChatViewController *chatViewController = [self createChatViewControllerContactType:contactType DialogID:dialogID];
+//    [self.appDelegate.lzGlobalVariable.messageRootVC pushChatViewControllerContactType:chatViewController controller:self];
+//    //    [self pushNewViewController:chatViewController];
+//}
 
 //创建聊天框界面
--(ChatViewController *)createChatViewControllerContactType:(NSInteger)contactType DialogID:(NSString *)dialogID
-{
-    ChatViewController *chatViewController = nil;
-    if ([self.appDelegate.lzSingleInstance.chatDialogDictionary objectForKey:dialogID] == nil)
-    {
-        chatViewController = [[ChatViewController alloc] init];
-        chatViewController.contactType = contactType;
-        chatViewController.dialogid = dialogID;
-        [self.appDelegate.lzSingleInstance.chatDialogDictionary setObject:chatViewController forKey:dialogID];
-    }
-    else
-    {
-        chatViewController =[self.appDelegate.lzSingleInstance.chatDialogDictionary objectForKey:dialogID];
-        [chatViewController loadInitChatLog:NO newBottomMsgs:nil];
-    }
-    
-    /* 参数重置 */
-    chatViewController.popToViewController = nil;
-    chatViewController.chatViewDidAppearBlock = nil;
-    chatViewController.sendToType = 0;
-    chatViewController.appCode = nil;
-    chatViewController.isShowSetting = nil;
-    chatViewController.isNotShowOpenWorkGroupBtn = NO;
-    
-    return chatViewController;
-}
+//-(ChatViewController *)createChatViewControllerContactType:(NSInteger)contactType DialogID:(NSString *)dialogID
+//{
+//    ChatViewController *chatViewController = nil;
+//    if ([self.appDelegate.lzSingleInstance.chatDialogDictionary objectForKey:dialogID] == nil)
+//    {
+//        chatViewController = [[ChatViewController alloc] init];
+//        chatViewController.contactType = contactType;
+//        chatViewController.dialogid = dialogID;
+//        [self.appDelegate.lzSingleInstance.chatDialogDictionary setObject:chatViewController forKey:dialogID];
+//    }
+//    else
+//    {
+//        chatViewController =[self.appDelegate.lzSingleInstance.chatDialogDictionary objectForKey:dialogID];
+//        [chatViewController loadInitChatLog:NO newBottomMsgs:nil];
+//    }
+//
+//    /* 参数重置 */
+//    chatViewController.popToViewController = nil;
+//    chatViewController.chatViewDidAppearBlock = nil;
+//    chatViewController.sendToType = 0;
+//    chatViewController.appCode = nil;
+//    chatViewController.isShowSetting = nil;
+//    chatViewController.isNotShowOpenWorkGroupBtn = NO;
+//
+//    return chatViewController;
+//}
 
 /**
  创建个人提醒界面
  */
-- (PersonRemindViewController *)createPersonRemindViewControllerContactType:(NSInteger)contactType DialogID:(NSString *)dialogID
-{
-    PersonRemindViewController *personRemindViewController = nil;
-    if ([self.appDelegate.lzSingleInstance.chatDialogDictionary objectForKey:dialogID] == nil) {
-        personRemindViewController = [[PersonRemindViewController alloc] init];
-        personRemindViewController.contactType = contactType;
-        personRemindViewController.dialogid = dialogID;
-        [self.appDelegate.lzSingleInstance.chatDialogDictionary setObject:personRemindViewController forKey:dialogID];
-    } else {
-        personRemindViewController = [self.appDelegate.lzSingleInstance.chatDialogDictionary objectForKey:dialogID];
-        [personRemindViewController loadInitChatLog:NO newBottomMsgs:nil];
-    }
-    return personRemindViewController;
-}
+//- (PersonRemindViewController *)createPersonRemindViewControllerContactType:(NSInteger)contactType DialogID:(NSString *)dialogID
+//{
+//    PersonRemindViewController *personRemindViewController = nil;
+//    if ([self.appDelegate.lzSingleInstance.chatDialogDictionary objectForKey:dialogID] == nil) {
+//        personRemindViewController = [[PersonRemindViewController alloc] init];
+//        personRemindViewController.contactType = contactType;
+//        personRemindViewController.dialogid = dialogID;
+//        [self.appDelegate.lzSingleInstance.chatDialogDictionary setObject:personRemindViewController forKey:dialogID];
+//    } else {
+//        personRemindViewController = [self.appDelegate.lzSingleInstance.chatDialogDictionary objectForKey:dialogID];
+//        [personRemindViewController loadInitChatLog:NO newBottomMsgs:nil];
+//    }
+//    return personRemindViewController;
+//}
 #pragma mark - NavigationController
 
 //添加返回按钮
@@ -515,5 +517,10 @@
  */
 -(void)onRightNavigationItemClicked{
     NSLog(@"============右侧导航按钮被点击了，子类的重写呢");
+}
+
+#pragma mark - EventBus Delegate
+-(void)eventOccurred:(NSString *)eventName event:(Event *)event {
+    
 }
 @end

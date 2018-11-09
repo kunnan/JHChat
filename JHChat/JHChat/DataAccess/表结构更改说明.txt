@@ -1,0 +1,175 @@
+/************************************************************
+描述类型(type)和描述信息(desc)要详细，如：
+    添加字段   在im_chatlog表中添加字段类型为[recvstatus]的字段integer
+    删除字段   删除im_chatlog表中的imdate字段
+    修改字段   修改im_chatlog表中的recvisread字段，将类型text修改为integer
+    添加表     添加表im_recent，字段：字段1、字段2
+    删除表     删除表im_recent
+***********************************************************/
+
+# DbVersion 2
+<author>     <time>       <type>     <desc>
+wch        2016-05-03     添加字段    在im_chatlog表中添加字段类型为[varchar](50)的字段testColumn
+sy         2016-05-06     添加表      添加表co_layout(cid [varchar](50)，layout [text])
+sy         2016-05-06     添加字段    在res_recycle表中添加字段类型为[varchar](50)的字段imageurl
+
+# DbVersion 3
+<author>     <time>       <type>     <desc>
+sy         2016-05-09     添加字段    在resshare表中添加字段类型为[varchar](100)的字段imageurl
+sy         2016-05-09     添加字段    在resshare表中添加字段类型为[integer]的字段issrc
+sy         2016-05-10     添加字段    在res表中添加字段类型为[integer]的字段isfavorite
+wch        2016-05-10     添加字段    在im_group表中添加字段类型为[integer]的字段usercount
+wch        2016-05-10     添加字段    在im_group_user表中添加字段类型为[date]的字段jointime
+
+# DbVersion 4
+<author>     <time>       <type>     <desc>
+wch        2016-05-17     添加字段    在app表中添加字段类型为[text]的字段appserver
+wch        2016-05-17     添加字段    在app表中添加字段类型为[integer]的字段remindnumber
+wch        2016-05-17     添加字段    在co_app表中添加字段类型为[text]的字段appserver
+wch        2016-05-17     添加字段    在co_app表中添加字段类型为[integer]的字段remindnumber
+wch        2016-05-17     添加字段    在co_app表中添加字段类型为[varchar](100)的字段appcode
+sy         2016-05-18     添加字段    在res表中添加字段类型为[text]的字段favoritesDic
+
+# DbVersion 5
+<author>     <time>       <type>     <desc>
+wch        2016-05-23     添加字段    在user_contact_ofencooperation表中添加字段类型为[integer]的字段showindex
+wzb        2016-05-23     删除字段    删除co_project表中的prid字段
+wzb        2016-05-23     删除字段    删除co_project表中的prjcode字段
+wzb        2016-05-23     删除字段    删除co_project表中的dept字段
+wzb        2016-05-23     删除字段    删除co_project表中的prjbaseinfo字段
+wzb        2016-05-23     删除字段    删除co_project表中的prjprogress字段
+wzb        2016-05-23     删除字段    删除co_project表中的deptname字段
+wzb        2016-05-23     删除字段    删除co_project表中的enddate字段
+wzb        2016-05-23     删除字段    删除co_project表中的manageruserid字段
+wzb        2016-05-23     添加字段    在co_project表中添加字段类型为[varchar](50) 的字段prid
+wzb        2016-05-23     添加字段    在co_project表中添加字段类型为[varchar](50) 的字段cid
+wzb        2016-05-23     添加字段    在co_project表中添加字段类型为[varchar](50) 的字段name
+wzb        2016-05-23     添加字段    在co_project表中添加字段类型为[integer] 的字段isfavorites
+wzb        2016-05-23     添加字段    在co_project表中添加字段类型为[varchar](50) 的字段oid
+wzb        2016-05-23     添加字段    在co_project表中添加字段类型为[text] 的字段des
+wzb        2016-05-23     添加字段    在co_project表中添加字段类型为[varchar](50) 的字段resourceid
+wzb        2016-05-23     添加字段    在co_project表中添加字段类型为[integer] 的字段memberslength
+wzb        2016-05-23     添加字段    在co_project表中添加字段类型为[date] 的字段createdate
+wzb        2016-05-23     添加字段    在co_project表中添加字段类型为[varchar](50) 的字段adminid
+dfl        2016-05-25     添加字段    在user_intervate表中添加字段类型为[varchar](50) 的字段face
+
+# DbVersion 6
+<author>     <time>       <type>     <desc>
+dfl        2016-05-30     添加表      添加表org_user_apply([ouaid],[uid],[oid] ,[applytime],[position],[oeid],[name],[entername],[face],[username],[mobile],[email],[result],[actionusername],[actionuid],[actiontime]
+wzb        2016-06-01     添加表      添加表CoManageDAL([cid],[type],[oid]
+wzb        2016-06-01      添加字段    在co_task表中添加字段类型为[varchar](50) 的字段adminid
+
+sy        2016-06-01     添加字段     在co_newcooperation表中添加字段类型为[integer] 的字段state
+
+# DbVersion 7
+<author>     <time>       <type>     <desc>
+wzb        2016-06-02      添加字段    在post表中添加字段类型为[varchar](50) 的字段address
+
+
+
+# DbVersion 7
+<author>     <time>       <type>     <desc>
+sy        2016-06-02     添加字段      在favorites表中添加字段类型为[integer] 的字段isfavorite
+
+# DbVersion 9
+<author>     <time>       <type>     <desc>
+wch        2016-06-13     添加字段      在org_enterprise表中添加字段类型为[varchar](50) 的字段username
+
+sy         2016-06-13     添加字段      在res表中添加字段类型为[integer] 的字段issave
+
+# DbVersion 10
+<author>     <time>       <type>     <desc>
+
+sy          2016-06-13    添加字段     在co_newmember表中添加字段类型为[integer] 的字段state
+
+# DbVersion 12
+<author>     <time>       <type>     <desc>
+
+wzb          2016-06-13    添加字段     在post表中添加字段类型为[integer] 的字段postversion
+wzb          2016-06-22    添加字段     在im_recent表中添加字段类型为[integer] 的字段isexistsgroup
+wzb          2016-06-24    添加字段     在im_group表中添加字段类型为[integer] 的字段isclosed
+
+# DbVersion 14
+<author>     <time>       <type>     <desc>
+wzb          2016-06-27    添加字段     在im_group表中添加字段类型为[integer] 的字段disturb
+
+
+# DbVersion 15
+<author>     <time>       <type>     <desc>
+dfl          2016-06-30    添加表       添加表user_info([uid],[username],[face],[cotainfojson]
+sy           2016-06-29    添加字段     在res表中添加字段类型为[integer] 的字段sortindex
+sy           2016-06-29    添加字段     在res表中添加字段类型为[varchar](50) 的字段icon
+sy           2016-06-29    添加字段     在res表中添加字段类型为[varchar](100) 的字段iconurl
+
+# DbVersion 16
+<author>     <time>       <type>     <desc>
+dfl          2016-07-01    添加字段     在org_user_intervate表中添加字段类型为[varchar](50) 的字段revokeuid
+dfl          2016-07-01    添加字段     在org_user_intervate表中添加字段类型为[text] 的字段revokeusername
+
+# DbVersion 19
+<author>     <time>       <type>     <desc>
+wch          2016-07-09    添加字段     在user_contact_ofencooperation表中添加字段类型为[varchar](50) 的字段receiverid
+dfl          2016-07-12    添加字段     在error表中添加字段类型为[integer] 的字段errortype
+
+# DbVersion 21
+<author>     <time>       <type>     <desc>
+dfl          2016-07-19    添加字段     在app表中添加字段类型为[text] 的字段sortid
+
+
+
+
+
+# DbVersion 22
+<author>     <time>       <type>     <desc>
+sy          2016-07-22    添加字段     在resshare表中添加字段类型为[varchar](250) 的字段copylink
+sy          2016-07-22    添加字段     在resshare表中添加字段类型为[varchar](100) 的字段qrcode
+sy          2016-07-22    添加字段     在resshare表中添加字段类型为[varchar](150) 的字段showlink
+
+# DbVersion 23
+<author>     <time>       <type>     <desc>
+wzb         2016-07-28    添加表       添加表post_template([tmcode],[tvid],[version],[template]
+
+
+# DbVersion 24
+<author>     <time>       <type>     <desc>
+wzb          2016-08-02    添加字段     在post_notification表中添加字段类型为[varchar] 的字段notificationparams
+wzb          2016-08-02    添加字段     在post_notification表中添加字段类型为[varchar] 的字段receivepid
+wzb          2016-08-02    添加字段     在post_notification表中添加字段类型为[varchar] 的字段uid
+wzb          2016-08-02    添加字段     在post_notification表中添加字段类型为[varchar] 的字段userface
+wzb          2016-08-02    添加字段     在post_notification表中添加字段类型为[varchar] 的字段username
+
+wzb          2016-08-02    添加字段     在post表中添加字段类型为[varchar] 的字段appcode
+wzb          2016-08-02    添加字段     在post表中添加字段类型为[varchar] 的字段relevanceappcode
+wzb          2016-08-02    添加字段     在post表中添加字段类型为[varchar] 的字段relevanceid
+wzb          2016-08-02    添加字段     在post表中添加字段类型为[varchar] 的字段posttemplateversion
+wzb          2016-08-02    添加字段     在post表中添加字段类型为[varchar] 的字段posttypecode
+wzb          2016-08-02    添加字段     在post表中添加字段类型为[varchar] 的字段favoritetitle
+wzb          2016-08-02    添加字段     在post表中添加字段类型为[varchar] 的字段appcodedataid
+wzb          2016-08-02    添加字段     在post表中添加字段类型为[varchar] 的字段posttemplatetypes
+wzb          2016-08-02    添加字段     在post表中添加字段类型为[integer] 的字段posttemplatetype
+wzb          2016-08-02    添加字段     在post表中添加字段类型为[integer] 的字段isfiles
+wzb          2016-08-02    添加表       添加表post_coopeation_type([posttypeid],[posttypename],[posttypecode],[mobilelogo],[logo],[describe],[appid])
+
+# DbVersion 25
+<author>     <time>       <type>     <desc>
+dfl          2016-08-10    添加表       添加表im_templatedetail([mtid],[templates],[code],[clickrefresh],[type],[templatedetailist],[name],[icon],[ios])
+# DbVersion 28
+<author>     <time>       <type>     <desc>
+wzb          2016-08-26    添加字段     在post表中添加字段类型为[varchar] 的字段orgid
+wzb          2016-08-30    添加表       添加表co_role([rid],[cid],[uid])
+
+# DbVersion 30
+<author>     <time>       <type>     <desc>
+sy           2016-08-31   添加字段    在co_app表中添加字段类型为[integer] 的字段isShowApp
+
+
+version:2 author:sy time:2016-08-31 添加字段
+version:2 author:sy time:2016-09-07 添加字段
+version:3 author:sy time:2016-09-14 添加字段
+version:10 author:sy time:16/10/17 添加字段
+version:11 author:sy time:16/10/20 添加字段
+version:12 author:sy time:16/10/31 添加字段
+version:16 author:sy time:16/11/25 添加字段
+
+
+

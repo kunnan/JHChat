@@ -13,7 +13,7 @@
 #import "HRColorUtil.h"
 #import "ZSSTextView.h"
 #import "LZToast.h"
-
+#import <photos/PHAsset.h>
 #import "RichTextEditorFontSizePickerViewController.h"
 #import "LCProgressHUD.h"
 #import "TZImagePickerController.h"

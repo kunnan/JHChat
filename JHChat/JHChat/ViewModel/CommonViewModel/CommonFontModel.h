@@ -22,10 +22,6 @@
 
 /**
  字体大小是否发生改变
-
- @param font 字体
-
- @return
  */
 - (BOOL)isChangeSystemFont:(NSString*)font;
 
